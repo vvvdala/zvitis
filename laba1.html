@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>Лабораторна робота №1</title>
+
+
+	</head>
+	<body>
+	
+		<input type="checkbox" id="menu-trigger" class="menu-trigger">
+   <label for="menu-trigger"></label>
+        <div class="menu">
+            <ul class="menu">
+                <li><a class="button" href="index.html">Головна сторінка</a></li>
+                <li><a  class="button_current" href="laba1.html">Лабораторна робота №1</a></li>
+                <li><a  class="button" href="laba2.html">Лабораторна робота №2</a></li>
+                <li><a  class="button" href="laba3.html">Лабораторна робота №3</a></li>
+                <li><a  class="button" href="lab4.html">Лабораторна робота №4</a></li>
+                <li><a  class="button" href="lab5.html">Лабораторна робота №5</a></li>
+                <li><a  class="button" href="lab6.html">Лабораторна робота №6</a></li>
+                
+              </ul>
+            </div>
+			
+	 <div class="content">
+            
+                <p><h2 align="center">Умова задачі</h2></p>
+                <p>Умова лабораторної роботи №1 передбачає виконання п’яти завдань мовою C# 
+в консольному застосунку згідно з варіантом. 
+Виконання завдання 1 вимагає використання методів класу Console. 
+Виконання завдання 2 вимагає використання методів класу Math.
+Виконання завдання 3 вимагає використання оператору if
+Виконання завдання 4 вимагає використання оператору switch
+Виконання завдання 5 вимагає використання оператору циклу<p>
+            </div>
+            <div class="content">
+        <p><h3 align="center">Завдання з лабораторної</h3></p>
+       <img src="laba1/task1.1.png"> 
+        <p><h2 align="center">Аналіз задачі</h2></p>
+		<p>Для виконання завдання необхідно створити switch case для того, щоб обирати одне завдання з 5, яке буде виконуватися.
+		Для першого завдання потрібно проаналізувати задачу, вирішити її та створити формулу для її виконання.
+		Для другого завдання для вирішення прикладу будемо використовувати математичні функції класу Math.
+		Для третього завдання нам знадобиться оператор if-else.
+		Для четвертого завдання необхідно створити switch case для того, щоб виводити один із пальців руки.
+		Для п'ятого завдання будемо використовувати цикл for для того, щоб порахувати суму.
+    
+</p>
+</div>
+<div class="content">
+        <p><h2 align="center">Блок-схеми</h2></p>
+		<img src="laba1/oop.scheme1.png">  
+		<p><h3 align="center">Завдання 1</h3></p>
+        <img src="laba1/oop.scheme1.1.png"> 
+<p><h3 align="center">Завдання 2</h3></p>		
+		<img src="laba1/oop.scheme.1.2.png">
+		<p><h3 align="center">Завдання 3</h3></p>
+		<img src="laba1/oop.scheme1.3.png">
+		<p><h3 align="center">Завдання 4</h3></p>
+		<img src="laba1/oop.scheme1.4.png">
+		<p><h3 align="center">Завдання 5</h3></p>
+		<img src="laba1/oop.scheme1.5.png">
+	
+    </div>
+	
+	
+	 <div class="code">
+        <details>
+            <summary>Код програми</summary>
+        <pre>
+            <code>
+			
+using System.Runtime.InteropServices;
+
+namespace Lab1
+{
+    class Program
+    {
+        static void task1()
+        {
+            Console.WriteLine("===Task 1===");
+            Console.WriteLine("\nЗ якою швидкiстю спортсмен \r\nувiйде у воду, стрибаючи з n метрової вежi, якщо спортсмен падає з \r\nприскоренням a=9,81м/с^2, початкова швидкiсть v0 = 0?");
+            Console.WriteLine("Введiть n: ");
+            double a = 9.81;
+            double n = Convert.ToDouble(Console.ReadLine());
+            if (n <= 0)
+            {
+                Console.WriteLine("Невiрно введенi числа, спробуй ще раз!\n");
+            }
+            else
+            {
+                double res = Math.Sqrt(a * 2 * n);
+                Console.WriteLine("Швидкість: " + res);
+            }
+        }
+
+        static void task2()
+        {
+            Console.WriteLine("===Task 2===");
+            Console.WriteLine("x = |a - 1/b^2| + cos a/ln(tg b)\nПрим: b > 0");
+            Console.WriteLine("Введіть а: ");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введіть b: ");
+            double b = Convert.ToDouble(Console.ReadLine());
+            if (b <= 0)
+            {
+                Console.WriteLine("Невiрно введенi числа, спробуй ще раз!\n");
+            }
+            else
+            {
+                var res = Math.Abs(a - (1 / Math.Pow(b, 2))) + (Math.Cos(a) / Math.Log(Math.Tan(b)));
+                Console.WriteLine("Результат: " + res);
+            }
+        }
+
+        static void task3()
+        {
+            Console.WriteLine("===Task 3===");
+            Console.WriteLine("4-x^2\tif 0 < x < 4\n0\tif x = 0\nx^3\tif x < 0\n1\tif x > 4");
+            double res;
+            double x=Convert.ToDouble(Console.ReadLine());
+            if(x>0&&x<4)
+            {
+                res = 4 - x*x;
+                Console.WriteLine("\nРезультат: "+res);
+            }
+            if (x==0)
+            {
+                res = 0;
+                Console.WriteLine("\nРезультат: " + res);
+            }
+            if (x < 0)
+            {
+                res = x * x * x;
+                Console.WriteLine("\nРезультат: " + res);
+            }
+            if (x>4)
+            {
+                res = 1;
+                Console.WriteLine("\nРезультат: " + res);
+            }
+        }
+
+        static void task4()
+        {
+            Console.WriteLine("===Task 4===");
+            int handNumber=Convert.ToInt32(Console.ReadLine());
+           switch (handNumber)
+            {
+                case 1:
+                    Console.WriteLine("\n:Палець 1 - великий ");
+                    break;
+
+                case 2:
+                    Console.WriteLine("\n:Палець 2 - вказівний ");
+                    break;
+
+                case 3:
+                    Console.WriteLine("\n:Палець 3 - середній  ");
+                    break;
+
+                case 4:
+                    Console.WriteLine("\n:Палець 4 - безіменний ");
+                    break;
+
+                case 5:
+                    Console.WriteLine("\n:Палець 5 - мізинець ");
+                    break;
+
+               default:
+                    Console.WriteLine("У вас нема такого пальця!\n");
+                    break;
+
+            }
+        }
+
+        static void task5()
+        {
+            Console.WriteLine("===Task 5===");
+            Console.WriteLine("Введiть n: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введiть x: ");
+            int x = Convert.ToInt32(Console.ReadLine());
+            if (x <= 0 || n <= 0 || n < x) Console.WriteLine("Невірні введені числа, спробуй ще раз!\n");
+            else
+            {
+                double sum = 0;
+                for (int i = 1; i <= n; i++)
+                {
+                    double numerator = Math.Pow(-1, i) * Math.Sqrt(Math.Pow((x + 1), i));
+
+                    double denominator = Math.Pow(i, x) - Math.Pow(x, i);
+
+                    double member = numerator / denominator;
+                    sum += member;
+                }
+                Console.WriteLine("\nСума = " + sum);
+            }
+        }
+        static void Main(string[] args)
+        {
+           
+            Console.WriteLine("Маношина Веронiка\nВарiант 17\nВiк:18\nГрупа IПЗ-11 курс 1\nveronkievipad@gmail.com\n");
+            
+
+            while (true)
+            {
+                Console.WriteLine("Введiть номер завдання: ");
+                int chs = Convert.ToInt32(Console.ReadLine());
+
+                switch (chs)
+                {
+                    case 1:
+                        task1();
+                        break;
+
+                    case 2:
+                        task2();
+                        break;
+
+                    case 3:
+                        task3();
+                        break;
+
+                    case 4:
+                        task4();
+                        break;
+
+                    case 5:
+                        task5();
+                        break;
+
+                }
+
+                Console.WriteLine("Продовжити виконання програми?Введiть 1 або 0\n(1 - так, 0 - нi): ");
+                int stop = Convert.ToInt32(Console.ReadLine());
+
+                if(stop == 0)
+                {
+                    break;
+                }
+            }
+        }
+               
+            </code>
+        </pre>
+    </details>
+    </div>
+	
+	
+	
+	
+	 <div class="content"> 
+        <p><h2 align="center">Виконання програми</h2></p> 
+        <p><h4 align="center">Виконання завдання №1</h4></p>           
+            <img src="laba1/result1.1.png">
+            <p><h4 align="center">Виконання завдання №2</h4></p>                         
+            <img src="laba1/result1.2.png"> 
+			 <p><h4 align="center">Виконання завдання №3</h4></p>                         
+            <img src="laba1/result1.3.1.png"> 
+			<img src="laba1/result1.3.2.png"> 
+			 <p><h4 align="center">Виконання завдання №4</h4></p>                         
+            <img src="laba1/result1.4.png"> 
+			 <p><h4 align="center">Виконання завдання №5</h4></p>                         
+            <img src="laba1/result1.5.png"> 
+                  
+    </div>
+    
+    
+    
+    <div class="content">  
+        <p><h2 align="center">Перевірка достовірності</h2></p>
+        <p><h4 align="center">Перевірка завдання №2</h4></p>         
+        <img src="laba1/perevirka1.2.jpg"> 
+<p><h4 align="center">Перевірка завдання №5</h4></p>         
+        <img src="laba1/perevirka1.5.jpg"> 		
+    </div>
+    
+    
+                <div class="content">
+                    <p><h2 align="center">Висновок</h2></p>
+                <p>На цій лабораторній роботі я повторила теми за перший семестр в С#.
+                </p>
+                </div>
+            </div>
+		
+
+
+	</body>
+
+
+
+</html>
